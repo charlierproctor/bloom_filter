@@ -9,10 +9,13 @@ bit_array bloomCreate() {
 #define SEED_ONE 33
 
 void bloomInsert(bit_array bloom, char *str) {
-	uint32_t a = SEED_ONE;
+	uint_bit a = SEED_ONE;
 
 	a = hash(str);
+	bitSet(bloom,a);
 
-	printf("%i\n", a);
+	printf("%llu\n",bloom[0]);
+	printf("%i\n", bitCheck(bloom,a));
+	printf("%i\n", bitCheck(bloom,a + 1));
 
 }
