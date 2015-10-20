@@ -1,8 +1,9 @@
 #include "bloom.h"
 #include "hash.h"
+#include "bits.h"
 
 bit_array bloomCreate() {
-	return calloc(NUM_BINS, sizeof(uint_bin));
+	return calloc(NUM_BINS, sizeof(uint_bin_type));
 }
 
 #define SEED_ONE 33

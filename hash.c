@@ -1,5 +1,5 @@
 #include "hash.h"
 
-uint_hash hash(const char *word) {
+uint_bit hash(const char *word) {
 	return 37;
 }

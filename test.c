@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 #include "bloom.h"
 
 int main(int argc, char const *argv[]) {
