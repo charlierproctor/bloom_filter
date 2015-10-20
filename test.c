@@ -4,7 +4,8 @@
 
 int main(int argc, char const *argv[]) {
 
-	printf("hi\n");
+	bit_array bloom = bloomCreate();
+	bloomInsert(bloom,"charlie");
 
 	return 0;
 }

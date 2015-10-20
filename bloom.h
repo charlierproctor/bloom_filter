@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <string.h>
 
 // each bin will be a number of this type
 typedef uint64_t uint_bin;
@@ -17,3 +18,8 @@ typedef uint_bin* bit_array;
 // maximum bit number in the bit array.
 #define MAX_BIT_NUM (sizeof(uint_bin) * NUM_BINS)
 
+// create an empty bloom filter
+bit_array bloomCreate();
+
+// insert an element into the bloom filter
+void bloomInsert(bit_array bloom, char *str);
