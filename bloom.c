@@ -6,7 +6,7 @@ bit_array bloomCreate() {
 	return calloc(NUM_BINS, sizeof(uint_bin_type));
 }
 
-void bloomInsert(bit_array bloom, char *str) {
+void bloomInsert(bit_array bloom, const char *str) {
 	uint_bit val = FIRST_SEED;
 
 	for (int i = 0; i < NUM_HASHES; i++) {
@@ -15,7 +15,7 @@ void bloomInsert(bit_array bloom, char *str) {
 	}
 }
 
-bool bloomCheck(bit_array bloom, char *str) {
+bool bloomCheck(bit_array bloom, const char *str) {
 	uint_bit val = FIRST_SEED;
 
 	for (int i = 0; i < NUM_HASHES; i++) {

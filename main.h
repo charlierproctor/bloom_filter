@@ -1,8 +1,12 @@
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 // how we'll store the bit numbers.
 typedef uint32_t uint_bit;
@@ -17,7 +21,7 @@ typedef uint64_t uint_bin_type;
 typedef uint_bin_type* bit_array;
 
 // number of bins in the bit array
-#define NUM_BINS (100)
+#define NUM_BINS (72000)
 
 // the size of each bin
 #define BIN_SIZE (sizeof(uint_bin_type))
@@ -30,3 +34,5 @@ typedef uint_bin_type* bit_array;
 
 // seed the first hash function 
 #define FIRST_SEED (33)
+
+#endif

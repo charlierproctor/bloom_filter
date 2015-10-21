@@ -14,7 +14,7 @@ uint32_t murmur3_32(const char *key, uint32_t len, uint32_t seed) {
 	const uint32_t *blocks = (const uint32_t *) key;
 	int i;
 	for (i = 0; i < nblocks; i++) {
-		uint32_t k = blocks[i];
+		uint32_t k = tolower(blocks[i]);
 		k *= c1;
 		k = (k << r1) | (k >> (32 - r1));
 		k *= c2;
@@ -28,11 +28,11 @@ uint32_t murmur3_32(const char *key, uint32_t len, uint32_t seed) {
 
 	switch (len & 3) {
 	case 3:
-		k1 ^= tail[2] << 16;
+		k1 ^= tolower(tail[2]) << 16;
 	case 2:
-		k1 ^= tail[1] << 8;
+		k1 ^= tolower(tail[1]) << 8;
 	case 1:
-		k1 ^= tail[0];
+		k1 ^= tolower(tail[0]);
 
 		k1 *= c1;
 		k1 = (k1 << r1) | (k1 >> (32 - r1));
