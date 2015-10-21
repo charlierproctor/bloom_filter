@@ -6,15 +6,23 @@ bit_array bloomCreate() {
 	return calloc(NUM_BINS, sizeof(uint_bin_type));
 }
 
-#define SEED_ONE 33
-
 void bloomInsert(bit_array bloom, char *str) {
-	uint_bit a = SEED_ONE;
+	uint_bit val = FIRST_SEED;
 
-	a = murmur3_32(str, strlen(str), SEED_ONE);
-	bitSet(bloom,a);
+	for (int i = 0; i < NUM_HASHES; i++) {
+		val = murmur3_32(str, strlen(str), val) % MAX_BIT_NUM;
+		bitSet(bloom,val);
+	}
+}
 
-	printf("%llu\n",bloom[0]);
-	printf("%i\n", bitCheck(bloom,a));
+bool bloomCheck(bit_array bloom, char *str) {
+	uint_bit val = FIRST_SEED;
 
+	for (int i = 0; i < NUM_HASHES; i++) {
+		val = murmur3_32(str, strlen(str), val) % MAX_BIT_NUM;
+		if (!bitCheck(bloom,val)) {
+			return false;
+		}
+	}
+	return true;
 }

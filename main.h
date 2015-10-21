@@ -24,3 +24,9 @@ typedef uint_bin_type* bit_array;
 
 // maximum bit number in the bit array.
 #define MAX_BIT_NUM (BIN_SIZE * NUM_BINS)
+
+// number of hashes
+#define NUM_HASHES (22)
+
+// seed the first hash function 
+#define FIRST_SEED (33)
