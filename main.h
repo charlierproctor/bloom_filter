@@ -21,7 +21,7 @@ typedef uint64_t uint_bin_type;
 typedef uint_bin_type* bit_array;
 
 // number of bins in the bit array
-#define NUM_BINS (72000)
+#define NUM_BINS (1000000)
 
 // the size of each bin
 #define BIN_SIZE (sizeof(uint_bin_type))
@@ -30,9 +30,9 @@ typedef uint_bin_type* bit_array;
 #define MAX_BIT_NUM (BIN_SIZE * NUM_BINS)
 
 // number of hashes
-#define NUM_HASHES (22)
+#define NUM_HASHES (7)
 
 // seed the first hash function 
-#define FIRST_SEED (33)
+#define FIRST_SEED (5381)
 
 #endif
