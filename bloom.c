@@ -11,11 +11,10 @@ bit_array bloomCreate() {
 void bloomInsert(bit_array bloom, char *str) {
 	uint_bit a = SEED_ONE;
 
-	a = hash(str);
+	a = murmur3_32(str, strlen(str), SEED_ONE);
 	bitSet(bloom,a);
 
 	printf("%llu\n",bloom[0]);
 	printf("%i\n", bitCheck(bloom,a));
-	printf("%i\n", bitCheck(bloom,a + 1));
 
 }
